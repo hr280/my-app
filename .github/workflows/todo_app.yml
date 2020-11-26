@@ -34,8 +34,11 @@ jobs:
         with:
             cmd: install  
 
-       # Runs a set of commands using the runners shell
+      - name: Creating build 
+        run: yarn build 
+
+      # Runs a set of commands using the runners shell
       - name: installing surge
         run: npm install --global surge
       - name: deploying using surge
-        run: surge ./build hrtodoapp.surge.sh/ --token ${{ secrets.SURGE_TOKEN }} 
+        run: surge ./ build hrtodoapp.surge.sh/ --token ${{ secrets.SURGE_TOKEN }} 
